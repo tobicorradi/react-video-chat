@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
         padding: '30px'
     },
     button: {
-        marginTop: '30px'
+        marginTop: '15px'
     },
     padding: {
         padding: '30px'
@@ -29,11 +29,6 @@ const Options = ({children}) => {
                         <Grid className={classes.padding} item xs={12} md={6}>
                             <Typography variant="h6">Account Info</Typography>
                             <TextField label="Name" value={name} onChange={(e) => setName(e.target.value)} fullWidth></TextField>
-                            <CopyToClipboard text={me}>
-                                <Button className={classes.button} variant="contained" color="primary" fullWidth startIcon={<Assignment fontSize="large" />}>
-                                    Copy Your ID
-                                </Button>
-                            </CopyToClipboard>
                         </Grid>
                         <Grid className={classes.padding} item xs={12} md={6}>
                             <Typography variant="h6">Make a call</Typography>
@@ -43,13 +38,20 @@ const Options = ({children}) => {
                                 variant="contained" 
                                 color="secondary" 
                                 fullWidth
+                                className={classes.button}
                                 startIcon={<PhoneDisabled fontSize="large" />}  
                                 onClick={leaveCall}
                                 >
                                     Hang Up
                                 </Button>
                             ) : (
-                            <Button
+                                <>
+                                <CopyToClipboard text={me}>
+                                    <Button className={classes.button} variant="outlined" color="primary" fullWidth startIcon={<Assignment fontSize="large" />}>
+                                        Copy Your ID
+                                    </Button>
+                                </CopyToClipboard>
+                                <Button
                                 variant="contained" 
                                 color="primary" 
                                 fullWidth
@@ -59,6 +61,7 @@ const Options = ({children}) => {
                                 >
                                     Call
                                 </Button>
+                                </>
                             )
                         }
                         </Grid>

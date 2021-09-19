@@ -4,7 +4,20 @@ import {SocketContext}  from '../../SocketContext'
 import { makeStyles } from '@material-ui/core'
 const useStyles = makeStyles((theme) => ({
     video: {
-        margin: '0 auto'
+        margin: '0 auto',
+        position: 'relative'
+    },
+    nameLabel: {
+        position: 'absolute',
+        bottom: '0',
+        right: '0',
+        margin: '0',
+        padding: '5px 15px',
+        backgroundColor: '#3f51b5',
+        color: 'white',
+        borderRadius: '10px 0 0 0',
+        textTransform: 'uppercase',
+        fontSize: "13px"
     }
 }))
 const VideoPlayer = () => {
@@ -15,16 +28,16 @@ const VideoPlayer = () => {
             {stream && (
                     <Paper className={classes.video}>
                         <Grid item xs={12} md={6}> 
-                            <Typography variant="h5" gutterBottom>{name || 'Placeholder name'}</Typography>
+                            <Typography variant='h6' gutterBottom className={classes.nameLabel}>{name || 'Write your name'}</Typography>
                             <video playsInline muted ref={myVideo} autoPlay></video>
                         </Grid>
                     </Paper>
                 )}
             {callAccepted && !callEnded && (
-                <Paper>
+                <Paper className={classes.video}>
                     <Grid item xs={12} md={6}> 
-                        <Typography variant="h5" gutterBottom>{call.name || 'Placeholder name'}</Typography>
                         <video playsInline ref={userVideo} autoPlay></video>
+                        <Typography variant='h6' gutterBottom className={classes.nameLabel}>{name || 'Write your name'}</Typography>
                     </Grid>
                 </Paper>
             )}
