@@ -56,6 +56,7 @@ const Options = ({children}) => {
                                 color="primary" 
                                 fullWidth
                                 className={classes.button}
+                                disabled={idToCall == ''}
                                 startIcon={<Phone fontSize="large" />}  
                                 onClick={() => callUser(idToCall)}
                                 >
