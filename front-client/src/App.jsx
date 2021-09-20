@@ -8,23 +8,22 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 const App = () => {
     return (
         <>
-          <Router>
-            <Switch>
-                <Route path="/login">
-                    <Login />
-                </Route>
-                <Route path="/call">
-                    <VideoPlayer />
-                    <Options>
-                        <Notifications />
-                    </Options>
-                </Route>
-            </Switch>
-      </Router>
+            <Router>
+                <Switch>
+                    <Route exact path="/">
+                        <Login />
+                    </Route>
+                    <Route exact path="/call">
+                        <VideoPlayer />
+                        <Options>
+                            <Notifications />
+                        </Options>
+                    </Route>
+                </Switch>
+            </Router>
             <AppBar>
                 <Typography variant="h6">VideoChat <a href="https://www.corraditobias.com.ar/">by Tobías Corradi</a></Typography>
             </AppBar>
-           
         </>
     )
 }
